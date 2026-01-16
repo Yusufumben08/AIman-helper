@@ -8,7 +8,7 @@ To use:
 
 - get openrouter api key at openrouter.ai
 
-- run ./aiman -key <api-key> to set the key
+- run ./aiman -key (api-key) to set the key
 
 - optionally run ./aiman -install for easier access in any directory
 
