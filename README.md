@@ -6,7 +6,7 @@ It can summarize how to use a command directly in your terminal, and you can res
 
 To use:
 
-- get openrouter api key at openrouter.ai
+- get openrouter api key at ai.hackclub.com
 
 - run ./aiman -key (api-key) to set the key
 
