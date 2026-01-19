@@ -7,7 +7,7 @@ fi
 
 
 
-KEY_FILE="$HOME/.openrouter_key"
+KEY_FILE="$HOME/.hcai_key"
 CONTEXT_FILE="/tmp/aiman_context.txt"
 
 #uncomment for testing n stuff
@@ -34,7 +34,7 @@ install_self() {
 
 uninstall_self() {
     local BIN="$HOME/.local/bin/aiman"
-    local KEY_FILE="$HOME/.openrouter_key"
+    local KEY_FILE="$HOME/.hcai_key"
     local CONTEXT_FILE="/tmp/aiman_context.txt"
 
     echo "Uninstalling aiman..."
@@ -104,7 +104,7 @@ fi
 if [ "$1" = "-help" ]; then
     echo "Usage:"
     echo "  aiman -help -- Show this help message"
-    echo "  aiman -key <api-key> -- Set your OpenRouter API key (only needed once)"
+    echo "  aiman -key <api-key> -- Set your Hack club AI API key (only needed once)"
     echo "  aiman <command> [question] -- Get information about something on a linux command"
     echo "  aiman -r <message> -- Allows you to respond to the AI's response about the last question"
     echo "  aiman -install -- Install aiman to ~/.local/bin and add to PATH for easy access"
@@ -126,8 +126,8 @@ fi
 if [ -f "$KEY_FILE" ]; then
     OPENROUTER_API_KEY=$(<"$KEY_FILE")
 else
-    echo "No API key found, set it with 'aiman -key <openrouter-api-key>'"
-    echo "You can get an api key for free at openrouter.ai"
+    echo "No API key found, set it with 'aiman -key <ai-api-key>'"
+    echo "You can get an api key for free at ai.hackclub.com"
     exit 1
 fi
 
@@ -206,7 +206,7 @@ payload=$(jq -n \
 )
 
 
-response=$(curl -s https://openrouter.ai/api/v1/chat/completions \
+response=$(curl -s https://ai.hackclub.com/proxy/v1/chat/completions \
   -H "Authorization: Bearer $OPENROUTER_API_KEY" \
   -H "Content-Type: application/json" \
   -d "$payload" \
